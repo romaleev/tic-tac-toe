@@ -22,8 +22,8 @@
   },
   "lint-staged": {
     "lib/**/*.ts": [
-      "prettier --list-different",
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ]
   },
   "keywords": [
