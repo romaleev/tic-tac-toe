@@ -1,4 +1,4 @@
-# TicTacToe
+# tic-tac-toe
 
 ## Task
 
