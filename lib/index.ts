@@ -3,7 +3,7 @@ import { stdin as input, stdout as output } from 'process'
 import TicTacToe, { Player } from './TicTacToe'
 ;(async () => {
 	const ticTacToe = new TicTacToe()
-	const rl = createInterface({ input, output })
+	const rl = createInterface({ input, output, terminal: false })
 	let player: Player
 
 	console.log(ticTacToe.render())
@@ -16,5 +16,6 @@ import TicTacToe, { Player } from './TicTacToe'
 		result && console.log(result)
 	}
 
+	rl.close()
 	process.exit()
 })()

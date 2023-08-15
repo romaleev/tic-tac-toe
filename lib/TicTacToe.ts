@@ -2,14 +2,14 @@ export type Player = 'x' | 'o' | ''
 
 class TicTacToe {
 	protected winningLines = [
-		[0, 1, 2],
-		[3, 4, 5],
-		[6, 7, 8],
-		[0, 3, 6],
+		[1, 2, 3],
+		[4, 5, 6],
+		[7, 8, 9],
 		[1, 4, 7],
 		[2, 5, 8],
-		[0, 4, 8],
-		[2, 4, 6],
+		[3, 6, 9],
+		[1, 5, 9],
+		[3, 5, 7],
 	]
 	protected diagonal = 3
 	protected size = Math.pow(this.diagonal, 2)
@@ -36,8 +36,8 @@ class TicTacToe {
 
 	isWinner(): boolean {
 		return this.winningLines.some((line) => {
-			const winningLineStates = line.map((i) => this.state[i])
-			return winningLineStates.every((state) => state === winningLineStates[0])
+			const lineState = line.map((i) => this.state[i - 1])
+			return lineState.every((state) => state === lineState[0])
 		})
 	}
 
@@ -53,13 +53,13 @@ class TicTacToe {
 			const winner = this.player
 			this.player = ''
 			return `Winner is '${winner}'`
-		}
-		if (this.stepCount === this.size) {
+		} else if (this.stepCount === this.size) {
 			this.player = ''
 			return `It is a draw`
-		} else this.player = this.player === 'x' ? 'o' : 'x'
-
-		return ''
+		} else {
+			this.player = this.player === 'x' ? 'o' : 'x'
+			return ''
+		}
 	}
 }
 

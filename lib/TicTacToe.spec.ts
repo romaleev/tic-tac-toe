@@ -8,7 +8,7 @@ describe('TicTacToe tests', () => {
 		ticTacToe = new TicTacToe()
 	})
 
-	it('should render the grid: .render()', () => {
+	it('render', () => {
 		expect(ticTacToe.render()).toEqual(`
  1 | 2 | 3
 ---+---+---
@@ -31,7 +31,7 @@ describe('TicTacToe tests', () => {
  7 | 8 | 9`)
 	})
 
-	it('should play in order: .getNextPlayer()', () => {
+	it('getNextPlayer', () => {
 		expect(ticTacToe.getNextPlayer()).toEqual('x')
 
 		ticTacToe.play(1)
@@ -46,7 +46,7 @@ describe('TicTacToe tests', () => {
 		expect(ticTacToe.getNextPlayer()).toEqual('')
 	})
 
-	it('should check the winner: .isWinner()', () => {
+	it('isWinner', () => {
 		expect(ticTacToe.isWinner()).toBeFalsy()
 
 		ticTacToe.play(1)
@@ -60,7 +60,7 @@ describe('TicTacToe tests', () => {
 		expect(ticTacToe.isWinner()).toBeTruthy()
 	})
 
-	it('should play with valid and errors output: .play(1..9)', () => {
+	it('play validation', () => {
 		expect(ticTacToe.play(0)).toEqual('Position should be 1-9')
 		expect(ticTacToe.play(1)).toBeFalsy()
 		expect(ticTacToe.play(1)).toEqual('Position 1 is already taken')
@@ -72,7 +72,7 @@ describe('TicTacToe tests', () => {
 		expect(ticTacToe.play(7)).toEqual("Winner is 'x'")
 	})
 
-	it("should play where player 'x' wins: .play(1..9)", () => {
+	it('play x wins', () => {
 		ticTacToe.play(1)
 		ticTacToe.play(2)
 		ticTacToe.play(3)
@@ -82,7 +82,7 @@ describe('TicTacToe tests', () => {
 		expect(ticTacToe.play(7)).toEqual("Winner is 'x'")
 	})
 
-	it("should play where player 'o' wins: .play(1..9)", () => {
+	it('play o wins', () => {
 		ticTacToe.play(4)
 		ticTacToe.play(1)
 		ticTacToe.play(5)
@@ -91,7 +91,7 @@ describe('TicTacToe tests', () => {
 		expect(ticTacToe.play(3)).toEqual("Winner is 'o'")
 	})
 
-	it('should play with a draw: .play(1..9)', () => {
+	it('play draw', () => {
 		ticTacToe.play(1)
 		ticTacToe.play(4)
 		ticTacToe.play(2)
